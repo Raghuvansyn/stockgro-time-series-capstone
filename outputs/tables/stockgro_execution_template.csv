@@ -1,0 +1,11 @@
+Ticker,Company,Sector,Recommended Weight,Target Rupee Allocation,Estimated Quantity,Order Type,Execution Date,Entry Price,Screenshot/Reference,Day 2 Close,Notes
+SUNPHARMA.NS,Sun Pharmaceutical,Pharma,0.11876966102287782,118769.66102287783,69,Market or Limit,,,,,
+TCS.NS,Tata Consultancy Services,IT,0.25,250000.0,79,Market or Limit,,,,,
+INFY.NS,Infosys,IT,0.25,250000.0,154,Market or Limit,,,,,
+ICICIBANK.NS,ICICI Bank,Banking,0.08123033897712215,81230.33897712214,60,Market or Limit,,,,,
+HDFCBANK.NS,HDFC Bank,Banking,0.05,50000.0,50,Market or Limit,,,,,
+ITC.NS,ITC,FMCG,0.05,50000.0,126,Market or Limit,,,,,
+MARUTI.NS,Maruti Suzuki,Auto,0.05,50000.0,2,Market or Limit,,,,,
+LT.NS,Larsen & Toubro,Infrastructure,0.05,50000.0,12,Market or Limit,,,,,
+TATASTEEL.NS,Tata Steel,Metals,0.05,50000.0,277,Market or Limit,,,,,
+RELIANCE.NS,Reliance Industries,Energy,0.05,50000.0,31,Market or Limit,,,,,
