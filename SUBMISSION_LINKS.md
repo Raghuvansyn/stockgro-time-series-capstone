@@ -1,5 +1,4 @@
 StockGro Capstone Submission Links
-
 1. Final Submission Code File and Report
 
 Google Drive Folder:
