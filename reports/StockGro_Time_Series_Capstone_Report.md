@@ -64,7 +64,7 @@ Models are evaluated on the validation period from 2025-07-01 to 2025-12-31 usin
 - MAPE
 - Directional accuracy
 
-The best model per stock is selected using validation error with directional accuracy as a tie-breaker. Outputs are saved in `outputs/forecasts/model_evaluation.csv`, `outputs/forecasts/validation_predictions.csv`, and `outputs/forecasts/best_model_summary.csv`.
+The implementation selects per-stock models using the custom score `MAPE * (1 - 0.75 * directional_accuracy)`, then additional sort keys. The comparison mixes one-step walk-forward baselines with fixed-origin ARIMA forecasts over the whole validation period, and the same validation period is used for model selection. These outputs do not establish a fair model ranking, independent test performance, or trading profitability. See [evaluation status and reproduction command](../docs/evaluation.md). Outputs are saved in `outputs/forecasts/model_evaluation.csv`, `outputs/forecasts/validation_predictions.csv`, and `outputs/forecasts/best_model_summary.csv`.
 
 ## 8. Volatility, Trend, and Risk Analysis
 

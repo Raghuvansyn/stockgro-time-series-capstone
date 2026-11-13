@@ -1,10 +1,8 @@
 # StockGro Time Series Capstone Project
 
-A complete time-series forecasting and portfolio construction project for the StockGro virtual trading challenge.
+A time-series forecasting and portfolio construction project for an educational StockGro virtual trading challenge.
 
-- Final Code + Report Drive Folder: [Add Google Drive link here]
-- Bonus Dashboard: [Add Streamlit/GitHub dashboard link here]
-- GitHub Repository: https://github.com/Raghuvansyn/stockgro-time-series-capstone
+Inspect the [source](src/), [committed forecast outputs](outputs/forecasts/), and [report](reports/StockGro_Time_Series_Capstone_Report.md). The dashboard can be run locally using the instructions below; a public deployment has not been verified.
 
 This project is for educational virtual trading only. It is not financial advice and does not use real-money trading APIs.
 
@@ -16,8 +14,8 @@ The project builds an end-to-end workflow for a virtual StockGro portfolio with 
 
 - Dataset period: 2021-01-01 to 2025-12-31
 - Training split: before 2025-07-01
-- Validation/test split: 2025-07-01 to 2025-12-31
-- Forecast horizon: next 5 trading days
+- Validation split used for model selection: 2025-07-01 to 2025-12-31; no separate held-out test
+- Forecast horizon: next 5 business days; exchange holidays are not modeled
 - Portfolio capital: INR 10,00,000
 - Final selected strategy: Strategy C, Correlation-Diversified
 - Target capital: INR 10,00,000
@@ -51,7 +49,17 @@ Selection is justified with average return, annualized volatility, rolling 20-da
 8. Portfolio allocation with forecast-guided, volatility-aware, and correlation-diversified strategies.
 9. Predicted-vs-actual comparison using a manual Day 2 StockGro close template.
 
-GARCH was skipped gracefully because the optional `arch` package is not installed. Prophet and LSTM are optional and non-blocking; the core project does not depend on them.
+GARCH is attempted only when the optional `arch` package is installed. Prophet and LSTM forecasting are not implemented in the modular pipeline.
+
+## Evaluation Status
+
+The current comparison mixes forecast protocols: Naive, Moving Average, and Exponential Smoothing use one-step walk-forward predictions with prior validation observations; ARIMA forecasts the whole validation period from the training cutoff. Their errors do not establish a fair model ranking. The same validation period selects the final model, so these results are not independent test performance or a five-day trading backtest.
+
+An offline check on November 14, 2026 recomputed two existing baselines for `DRREDDY.NS` from the committed cache: 1,110 training observations and 126 validation observations. Naive MAPE was **0.837665%** and MovingAverage20 MAPE was **2.103135%**, matching the stored results. This verifies those calculations only. ARIMA, the full pipeline, dashboard, live downloads, and trading execution were not verified by that check.
+
+See [evaluation method and reproduction command](docs/evaluation.md) for RMSE, directional accuracy, exact sample dates, and limitations.
+
+Historical prices are fetched through `yfinance`; caches are included in `data/raw/`. The repository does not document the upstream market-data license or redistribution permission. Review the provider's applicable terms before reusing or redistributing those caches. Data access through a library does not establish reuse rights.
 
 ## Final Allocation Summary
 
